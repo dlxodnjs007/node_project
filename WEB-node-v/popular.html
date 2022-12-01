@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +8,6 @@
     <link href="./css/main.css?after" rel="stylesheet">
 </head>
 <body>
-    <%
-        String user_id = null;
-        if(session.getAttribute("user_id") != null) {
-            user_id = (String) session.getAttribute("user_id");
-        }
-    %>
 	<div id="wrap">
         <!-- header -->
         <div id="header">
@@ -118,9 +109,6 @@
             <!-- aside -->
             <div id="aside-wrap">
                 <div id="rightside">
-                    <%
-                        if(user_id == null) {
-                    %>
                     <div class="login-wrap">
                         <form id="loginForm" method="post" action="loginAction.jsp" accept-charset="utf-8">
 
@@ -137,9 +125,6 @@
                             <a href="/member/find/id">아이디·비밀번호 찾기</a>
                         </div>
                     </div>
-                    <%
-                        } else {
-                    %>
                     <div class="logout-wrap">
                             <div class="logout-box">
                                 <button type="button" onclick="location.href='./logoutAction.jsp'">내 정보</button><br>
@@ -147,9 +132,6 @@
                                 <button type="button" onclick="location.href='./logoutAction.jsp'">로그아웃</button>
                             </div>
                     </div>
-                    <%
-                        }
-                    %>
                     <!-- //login -->
                 </div>
             </div>

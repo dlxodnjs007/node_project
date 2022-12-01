@@ -530,7 +530,7 @@
 
 .member-tracking{left: 690px; top: 54px; font-size: 12px; width: 250px; z-index: 12;}
 .member-tracking ul{margin: 5px;}
-.member-tracking li{line-height: 16px; background: url('./img/bullet_common.png') no-repeat 0 -13px; padding-left: 8px; color: #666666;}
+.member-tracking li{line-height: 16px; padding-left: 8px; color: #666666;}
 .member-tracking li strong{color: #ef222a;}
 .member-tracking li a{color: #666666;}
 .member-tracking li a:hover{color: #ef222a;}
