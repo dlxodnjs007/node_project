@@ -13,7 +13,7 @@
 .widget h2 a:hover{text-decoration: none;}
 .widget .widget-more{position: absolute; top: 6px; right: 5px; font-size: 15px; font-family: tahoma, sans-serif; color: #888888;}
 .widget .widget-more:hover{text-decoration: none;}
-.widget ul li .item-wrap{display: inline-block; max-width: 96%; height: 19px; line-height: 19px; background: url('./img/bullet_common.png') no-repeat 0 8px; padding-left: 10px;}
+.widget ul li .item-wrap{display: inline-block; max-width: 96%; height: 19px; line-height: 19px;}
 .widget ul li:after{content: ""; display: block; clear: both;}
 .widget ul li .ico-set{float: right; margin-top: -1px;}
 .widget ul li .ico-set img{vertical-align: middle; padding-left: 2px;}
