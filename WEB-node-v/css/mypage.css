@@ -12,8 +12,7 @@
 .account-body .section .account-chk input[type="checkbox"]{display: none;}
 .account-body .section .account-chk label{font-size: 14px; color: #000; font-weight: bold;}
 
-.account-body .section .account-chk input[type="checkbox"]:checked + label span{background: url("https://www.ilbe.com/css/./img/icon_common.png") no-repeat -20px -139px ;}
-.account-body .section .account-chk input[type="checkbox"] + label span{display: inline-block; width: 19px; height: 19px; background: url("https://www.ilbe.com/css/./img/icon_common.png") no-repeat -20px -162px; vertical-align: top; cursor: pointer; margin-right: 8px;}
+.account-body .section .account-chk input[type="checkbox"] + label span{display: inline-block; width: 19px; height: 19px;  vertical-align: top; cursor: pointer; margin-right: 8px;}
 .account-body .btn-wrap{margin-top: 20px; text-align: center;}
 
 .account-footer{text-align: center; margin: 50px 0 30px;}
