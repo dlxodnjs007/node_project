@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>오직농구</title>
+    <link href="/static/stylesheets/base.css?after" rel="stylesheet">
+    <link href="/static/stylesheets/common.css?after" rel="stylesheet">
+    <link href="/static/stylesheets/main.css?after" rel="stylesheet">
+    <link href="/static/stylesheets/mypage.css?after" rel="stylesheet">
+    <script>
+        function goPopupShowGame(game_id){
+            var pop = window.open("/matching/showApprovedGame/" + game_id,"pop","width=600,height=670, scrollbars=yes, resizable=yes, left=200, top=200");
+        }
+        function goPopupShowGameApproved(game_id){
+            var pop = window.open("/showGameApproved.jsp?id=" + game_id,"pop","width=600,height=670, scrollbars=yes, resizable=yes, left=200, top=200");
+        }
+    </script>
+</head>
+<body>
+<div id="wrap">
+    <!-- header -->
+    <div id="header">
+        <div id="gnb-top" class="bg-season"
+             style="display: block; background: url('/static/images/logo.png') no-repeat center 0;">
+            <div class="gnb-fix-area">
+                <h1 class="logo-link"><a href="/">오직 농구 only basketball</a></h1>
+            </div>
+        </div>
+        <!-- GNB -->
+        <div id="gnb">
+            <ul id="menu" class="gnb-list drop-menu">
+                <li><a href="/">오직인기</a></li>
+                <li><a href="/">오직컨텐츠</a></li>
+                <li><a href="/matching">오직매칭</a></li>
+                <li><a href="/">오직거래</a></li>
+                <li><a href="/">오직대관</a></li>
+            </ul>
+        </div>
+        <!-- //GNB -->
+    </div>
+    <!-- //header -->
+    <!-- container -->
+    <div id="container">
+        <!-- 본문 -->
+        <div id="content-wrap">
+            <div id="type-of-game">
+                매칭 완료 게임
+            </div>
+            <%
+            for(var j = 0; j < hList.length; j++) {
+            %>
+            <div class="game-exist">
+                <button type="button" class="game-exist-btn" value="<%=hList[j].id_no%>" onclick="goPopupShowGame(this.value)">
+                    <%=hList[j].h_team_name%>&nbsp—
+                    <%=hList[j].juso%>
+                    —&nbsp<%=hList[j].game_date.substring(0,9)%>
+                    —&nbsp<%=hList[j].game_date.substring(11,12)%>시
+                    <%=hList[j].game_date.substring(14,15)%>분
+                </button>
+            </div>
+            <% } %>
+            <div id="matching_btn">
+                <button type="button" onclick="location.href='./awayWantHome'">게임 신청하기</button>
+            </div>
+        </div>
+        <!-- //본문 -->
+
+        <!-- aside -->
+        <div id="aside-wrap">
+            <div id="rightside">
+                <%
+                if(loginFlag == false) {
+                %>
+                    <div class="login-wrap">
+                        <form id="loginForm" method="post" action="login" accept-charset="utf-8">
+                            <div class="login-box">
+                                <span>
+                                    <input type="text" name="user_id" placeholder="아이디" >
+                                    <input type="password" name="password" placeholder="비밀번호">
+                                </span>
+                                <button type="submit" value="main" name="loginButton">
+                                    <span>로그인</span>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="user-util">
+                            <!--                            <a href="/join.html">회원가입</a>-->
+                            <a href="/join">회원가입</a>
+                            <a href="/member/find/id">아이디·비밀번호 찾기</a>
+                        </div>
+                    </div>
+                <%
+                } else if(loginFlag == true) {
+                %>
+                    <div class="logout-wrap">
+                        <div class="logout-box">
+                            <button type="button" onclick="location.href='./logoutAction.html'">내 정보</button><br>
+                            <button type="button" onclick="location.href='./logoutAction.html'">내 팀 정보</button><br>
+                            <button type="button" onclick="location.href='../logout'">로그아웃</button>
+                        </div>
+                    </div>
+                <%
+                }else{
+                %>
+                    <h2>로그인 상태 오류 발생  <%= user_id %><br><%= loginFlag%></h2>
+                <%
+                }
+                %>
+                <!-- //login -->
+            </div>
+        </div>
+        <!-- aside 끝 -->
+    </div>
+    <!-- //container -->
+
+    <!-- footer -->
+    <div id="footer">
+    </div>
+    <!-- //footer -->
+</div>
+</body>

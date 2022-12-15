@@ -22,3 +22,34 @@
 .widget ul li .ico-set .comment{font-size: 11px; font-family: tahoma, sans-serif; color: #FE6700; padding: 0 2px 0 4px;}
 .widget ul li .ico-set .comment a{font-size: 11px; font-family: tahoma, sans-serif; color: #FE6700;}
 
+.game-exist .game-exist-btn {
+    font-size: 25px;
+    height: 50px;
+    width: 600px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border: solid 5px;
+    border-color: #000;
+}
+
+.game-exist .game-exist-btn-pickup {
+    background-color: bisque;
+    border: 1px solid #888888;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 33px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.game-exist .game-exist-btn-pickup:hover {
+    filter: brightness(0.9);
+}
+
+.game-exist {
+    text-align: center;
+}
+
+.away-approve {
+    margin-top: 50px;
+}

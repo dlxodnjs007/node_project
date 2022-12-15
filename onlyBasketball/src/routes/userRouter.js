@@ -6,15 +6,16 @@ const userController = require("../controllers/userController");
 //메인페이지
 userRouter.get("/", userController.home);
 
-//회원가입
+//DB에 신규 유저 등록
 userRouter.post("/join", userController.register);
 
+//회원가입 페이지
 userRouter.get("/join",userController.join);
 
-//로그인
-// userRouter.get("/login",userController.login);
-//
-// userRouter.get("/edit",userController.edit);
+userRouter.post("/login",userController.login);
+
+userRouter.get("/logout",userController.logout);
+
 //
 // userRouter.get("/delete",userController.remove);
 //

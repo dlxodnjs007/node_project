@@ -15,7 +15,9 @@
     "memorystore": "^1.6.7",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.3",
+    "package.json": "^2.0.1",
+    "pakage.json": "^1.0.0"
   },
   "main": "app.js",
   "keywords": [],

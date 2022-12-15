@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>오직농구</title>
+    <link href="/static/stylesheets/base.css" rel="stylesheet" type="text/css">
+    <link href="/static/stylesheets/common.css" rel="stylesheet" type="text/css">
+    <link href="/static/stylesheets/main.css" rel="stylesheet" type="text/css">
+</head>
+<script>
+    function homeGameCancel(cancel_info) {
+        location.href = "HomeGameCancelAction.jsp?"+cancel_info;
+    }
+    function matchAction(apply_id) {
+        location.href = "./match/" + apply_id;
+    }
+    function matchCancelAction(apply_id) {
+        location.href = "./matchCancle/" + apply_id;
+    }
+</script>
+<body>
+<!-- container -->
+<div id="popup_container">
+    <!-- 본문 -->
+    <div id="type-of-game">
+        내 홈 게임 정보
+    </div>
+    <div class="game-exist">
+        <%=game.h_team_name%>
+        <br>
+        <%=game.juso%>
+        <br>
+        <%=game.game_date.substring(0,9)%>
+        |&nbsp<%=game.game_date.substring(11,12)%>시
+        <%=game.game_date.substring(14,15)%>분
+        <br>
+        <%=game.home_people%>
+        <br>
+        <%=game.home_age%>
+        <br>
+        <%=game.home_uniform%>
+        <br>
+        <%=game.away_people%>
+        <br>
+        <%=game.away_level%>
+        <br>
+        <%=game.away_age%>
+        <br>
+        <%=game.shower%>
+        <br>
+        <%=game.parking%>
+        <br>
+        <%=game.warning%>
+        <br>
+        <button type="button" class="game-exist-btn" value="id=<%=game.id_no%>&home_id=<%=game.home_id%>" onclick="homeGameCancel(this.value)">
+            취소
+        </button>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div id="type-of-game">
+        신청한 어웨이 팀들
+    </div>
+        <%
+        var check = 0;
+        for(var j = 0; i < list.length; i++) {
+            if(list[j].accept_status == 1) {
+                check = 1;
+                break;
+            }
+        }
+        if(list.length == 0) {
+        %>
+        <div>
+            신청한 팀이 없습니다.
+        </div>
+        <%
+        } else {
+            if(check == 0){
+                for(var i = 0; i < list.length; i++) {
+                    if(list[i].accept_status == 0) {
+        %>
+        <%=list[i].a_team_name%>
+        &nbsp—&nbsp
+        <%=list[i].away_id%>
+        &nbsp—&nbsp
+        <%=list[i].away_people%>
+        &nbsp—&nbsp
+        <%=list[i].away_level%>
+        &nbsp—&nbsp
+        <%=list[i].away_age%>
+        <button type="button" class="game-exist-btn" value="<%=list[i].apply_id%>" onclick="matchAction(this.value)">
+            매칭
+        </button>
+        <br>
+        <%
+        }}}}
+        %>
+    <br>
+    <br>
+    <hr>
+    <div id="type-of-game">
+        매칭된 팀
+    </div>
+    <br>
+    <br>
+    <%
+    for(var i = 0; i < list.length; i++) {
+    if(list[i].accept_status == 1) {
+    %>
+    <%=list[i].a_team_name%>
+    &nbsp—&nbsp
+    <%=list[i].away_id%>
+    &nbsp—&nbsp
+    <%=list[i].away_people%>
+    &nbsp—&nbsp
+    <%=list[i].away_level%>
+    &nbsp—&nbsp
+    <%=list[i].away_age%>
+    <button type="button" class="game-exist-btn" value="<%=list[i].apply_id%>" onclick="matchCancelAction(this.value)">
+        취소
+    </button>
+    <%
+    }}
+    %>
+    <!-- 본문 끝-->
+</div>
+<!-- //container -->
+
+
+
+</body>
+</html>

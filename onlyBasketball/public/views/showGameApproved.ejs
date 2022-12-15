@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>오직농구</title>
+    <link href="/static/stylesheets/base.css" rel="stylesheet" type="text/css">
+    <link href="/static/stylesheets/common.css" rel="stylesheet" type="text/css">
+    <link href="/static/stylesheets/main.css" rel="stylesheet" type="text/css">
+</head>
+<script>
+</script>
+<body>
+<!-- container -->
+<div id="popup_container">
+    <!-- 본문 -->
+    <div id="type-of-game">
+        내가 신청한 게임 - 승인 완료
+    </div>
+    <div class="game-exist">
+        <%=game.h_team_name%>
+        <br>
+        <%=game.juso%>
+        <br>
+        <%=game.game_date.substring(0,9)%>
+        |&nbsp<%=game.game_date.substring(11,12)%>시
+        <%=game.game_date.substring(14,15)%>분
+        <br>
+        <%=game.home_people%>
+        <br>
+        <%=game.home_age%>
+        <br>
+        <%=game.home_uniform%>
+        <br>
+        <%=game.away_people%>
+        <br>
+        <%=game.away_level%>
+        <br>
+        <%=game.away_age%>
+        <br>
+        <%=game.shower%>
+        <br>
+        <%=game.parking%>
+        <br>
+        <%=game.warning%>
+        <br>
+    </div>
+    <br>
+    <br>
+
+    <!-- 본문 끝-->
+</div>
+<!-- //container -->
+
+
+
+</body>
+</html>
