@@ -8,7 +8,7 @@ const nunjucks = require('nunjucks');
 const MemoryStore = require('memorystore')(session);
 
 const userRouter = require('./src/routes/userRouter');
-// const homeGameRouter = require('./src/routes/homeGameRouter');
+const homeGameRouter = require('./src/routes/homeGameRouter');
 // const globalRouter = require('./src/routes/globalRouter');
 
 const app = express();
@@ -39,11 +39,10 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 //메인페이지 호출
 app.use("/", userRouter);
-
-// app.use("/homeGame", homeGameRouter);
+app.use('/matching', homeGameRouter);
 
 app.listen(3000, () => {
-    console.log(`Server at 127.0.0.1:${port}`);
+    console.log(`Server at http://127.0.0.1:${port}`);
 });
 
 

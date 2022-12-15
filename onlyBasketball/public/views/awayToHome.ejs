@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>오직농구</title>
+    <link href="/static/stylesheets/base.css" rel="stylesheet" type="text/css">
+    <link href="/static/stylesheets/common.css" rel="stylesheet" type="text/css">
+    <link href="/static/stylesheets/main.css" rel="stylesheet" type="text/css">
+    <link href="/static/stylesheets/mypage.css" rel="stylesheet">
+</head>
+<body>
+<!-- container -->
+<div id="popup_container">
+    <!-- 본문 -->
+    <div id="type-of-game">
+        해당 홈 게임 정보
+    </div>
+    <div class="game-exist">
+        <%=game.juso%>
+        <br>
+        <%=game.game_date.substring(0,9)%>
+        |&nbsp<%=game.game_date.substring(11,12)%>시
+        <%=game.game_date.substring(14,15)%>분
+        <br>
+        <%=game.home_people%>
+        <br>
+        <%=game.home_age%>
+        <br>
+        <%=game.home_uniform%>
+        <br>
+        <%=game.away_people%>
+        <br>
+        <%=game.away_level%>
+        <br>
+        <%=game.away_age%>
+        <br>
+        <%=game.shower%>
+        <br>
+        <%=game.parking%>
+        <br>
+        <%=game.warning%>
+        <br>
+    </div>
+    <hr>
+    <%
+    if(game.home_id == user_id) {
+    %>
+        <div>
+            내가 등록한 게임입니다. 신청이 안됩니다.
+        </div>
+    <%
+    }else{
+    %>
+    <form id="away_apply" name="form" method="post" action="/matching/awayApply">
+        <input type="text" name="game_id_no" style="display: none;" value="<%=game.id_no%>">
+        <input type="text" name="away_id" style="display: none;" value="<%=user_id%>">
+        <dl class="make-game-info">
+            <dt class="essential">내 팀 이름</dt>
+            <dd>
+                    <span class="item-value modify-on">
+                        <input type="text" name="a_team_name" placeholder="팀이름을 입력하세요">
+                    </span>
+            </dd>
+        </dl>
+        <dl class="make-game-info">
+            <dt class="essential">내 팀 인원</dt>
+            <dd>
+                <select class="select-box" name="away_people" form="away_apply">
+                    <option value="5people">5명</option>
+                    <option value="6people">6명</option>
+                    <option value="7people">7명</option>
+                    <option value="8people">8명</option>
+                    <option value="9people">9명</option>
+                    <option value="10people">10명</option>
+                    <option value="11people">11명</option>
+                    <option value="12people">12명</option>
+                </select>
+            </dd>
+        </dl>
+        <dl class="make-game-info">
+            <dt class="essential">내 팀 실력</dt>
+            <dd>
+                <select class="select-box" name="away_level" form="away_apply">
+                    <option value="S">S</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                </select>
+            </dd>
+        </dl>
+        <dl class="make-game-info">
+            <dt class="essential">내 팀 나이대</dt>
+            <dd>
+                <select class="select-box" name="away_age" form="away_apply">
+                    <option value="late_10dae">10대 후반</option>
+                    <option value="early_20dae">20대 초반</option>
+                    <option value="middle_20dae">20대 중반</option>
+                    <option value="late_20dae">20대 후반</option>
+                    <option value="early_30dae">30대 초반</option>
+                    <option value="middle_30dae">30대 중반</option>
+                    <option value="late_30dae">30대 후반</option>
+                </select>
+            </dd>
+        </dl>
+        <button type="submit" class="game-exist-btn">
+            신청
+        </button>
+    </form>
+    <%
+    }
+    %>
+    <br>
+    <br>
+    <!-- 본문 끝-->
+</div>
+<!-- //container -->
+
+
+
+</body>
+</html>

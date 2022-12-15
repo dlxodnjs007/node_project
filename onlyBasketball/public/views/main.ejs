@@ -14,9 +14,9 @@
         <!-- header -->
         <div id="header">
             <div id="gnb-top" class="bg-season"
-                style="display: block; background: url('../../../node_project/WEB-node-v/images/logo.png') no-repeat center 0;">
+                style="display: block; background: url('/static/images/logo.png') no-repeat center 0;">
                 <div class="gnb-fix-area">
-                    <h1 class="logo-link"><a href="public/main_old.html">오직 농구 only basketball</a></h1>
+                    <h1 class="logo-link"><a href="/">오직 농구 only basketball</a></h1>
                 </div>
             </div>
             <!-- GNB -->
@@ -99,8 +99,11 @@
             <!-- aside -->
             <div id="aside-wrap">
                 <div id="rightside">
+                    <%
+                        if(loginFlag == false) {
+                    %>
                     <div class="login-wrap">
-                        <form id="loginForm" method="post" action="loginAction.html" accept-charset="utf-8">
+                        <form id="loginForm" method="post" action="login" accept-charset="utf-8">
                             <div class="login-box">
                                 <span>
                                     <input type="text" name="user_id" placeholder="아이디" >
@@ -114,16 +117,26 @@
                         <div class="user-util">
 <!--                            <a href="/join.html">회원가입</a>-->
                             <a href="/join">회원가입</a>
-                            <a href="/member/find/id">아이디·비밀번호 찾기</a>
+<!--                            <a href="/member/find/id">아이디·비밀번호 찾기</a>-->
                         </div>
                     </div>
+                        <%
+                            } else if(user_id != null && loginFlag == true) {
+                        %>
                     <div class="logout-wrap">
                             <div class="logout-box">
                                 <button type="button" onclick="location.href='./logoutAction.html'">내 정보</button><br>
                                 <button type="button" onclick="location.href='./logoutAction.html'">내 팀 정보</button><br>
-                                <button type="button" onclick="location.href='./logoutAction.html'">로그아웃</button>
+                                <button type="button" onclick="location.href='/logout'">로그아웃</button>
                             </div>
                     </div>
+                        <%
+                            }else{
+                        %>
+                        <h2>로그인 상태 오류 발생  <%= user_id %><br><%= loginFlag%></h2>
+                        <%
+                            }
+                        %>
                     <!-- //login -->
                 </div>
             </div>
